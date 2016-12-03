@@ -4,10 +4,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
 
+import org.usfirst.frc.team2910.robot.commands.MecanumDrive;
 /**
  *
  */
-public class DriveTrain extends Subsystem {
+public class DriveTrainSubsystem extends Subsystem {
     
 	private SpeedController frontLeft = new Talon(RobotMap.DRIVETRAIN_FRONT_LEFT);
 	private SpeedController frontRight = new Talon(RobotMap.DRIVETRAIN_FRONT_RIGHT);
@@ -18,7 +19,7 @@ public class DriveTrain extends Subsystem {
     // here. Call these from Commands.
 	
 	public void initDefaultCommand() {
-		
+		this.setDefaultCommand(new MecanumDrive());
 	}
 	
     public void drive(double FLeft, double FRight, double BLeft, double BRight) {
